@@ -229,4 +229,15 @@ return [
 
     ],
 
+    'rate_limits' => [
+        'access' => [
+            'expires' => 1,
+            'limit' => 60,
+        ],
+        'sign' => [
+            'expires' => 1,
+            'limit' => 10,
+        ],
+    ],
+
 ];

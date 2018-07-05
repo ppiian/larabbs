@@ -19,9 +19,15 @@ $api = app(Router::class);
 $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api',
 ], function ($api) {
-    $api->post('verificationCodes', 'VerificationCodesController@store')
+    $api->group([
+        'middleware' => 'api.throttle',
+        'limit' => config('api.rate_limits.sign.limit'),
+        'expires' => config('api.rate_limits.sign.expires'),
+    ], function ($api) {
+        $api->post('verificationCodes', 'VerificationCodesController@store')
         ->name('api.verificationCodes.store');
 
-    $api->post('users', 'UsersController@store')
+        $api->post('users', 'UsersController@store')
         ->name('api.users.store');
+    });
 });
