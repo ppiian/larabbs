@@ -16,8 +16,9 @@ use Illuminate\Http\Request;
 
 $api = app(Router::class);
 
-$api->version('v1', function($api) {
-    $api->get('version', function (){
-        return 'aasdf';
-    });
+$api->version('v1', [
+    'namespace' => 'App\Http\Controllers\Api',
+], function($api) {
+    $api->post('verificationCodes', 'VerificationCodesController@store')
+        ->name('api.verificationCodes.store');
 });
