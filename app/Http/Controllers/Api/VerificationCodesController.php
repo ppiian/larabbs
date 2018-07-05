@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\Api\VerificationCodeRequest;
 use Illuminate\Http\Request;
+use Overtrue\EasySms\EasySms;
 use Overtrue\EasySms\Exceptions\NoGatewayAvailableException;
 
 class VerificationCodesController extends Controller
@@ -12,7 +14,7 @@ class VerificationCodesController extends Controller
         $phone = $request->phone;
 
         if (app()->environment('local')) {
-            $code = 1234;
+            $code = '1234';
         } else {
             $code = str_pad(random_int(1, 999), 4, 0, STR_PAD_LEFT);
 
