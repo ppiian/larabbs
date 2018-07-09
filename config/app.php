@@ -179,6 +179,7 @@ return [
 
 
         App\Providers\EasySmsServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
 
     ],
 
