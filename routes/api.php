@@ -40,6 +40,10 @@ $api->version('v1', [
         // 登录
         $api->post('authorizations', 'AuthorizationsController@store')
             ->name('api.authorizations.store');
+
+        $api->post('weapp/users', 'UsersController@weappStore')
+            ->name('api.weapp.users.store');
+
         $api->post('weapp/authorizations', 'AuthorizationsController@weappStore')
             ->name('api.weapp.authorizations.store');
         // 刷新token

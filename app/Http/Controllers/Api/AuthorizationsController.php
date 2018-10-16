@@ -65,7 +65,6 @@ class AuthorizationsController extends Controller
             }
             $user = auth()->guard('api')->getUser();
             $attributes['weapp_openid'] = $data['openid'];
-
         }
         $user->update($attributes);
         $token = auth()->guard('api')->fromUser($user);
