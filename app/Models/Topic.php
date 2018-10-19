@@ -11,6 +11,11 @@ class Topic extends Model
         return $this->hasMany(Reply::class);
     }
 
+    public function topReplies()
+    {
+        return $this->replies()->limit(5);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -50,6 +55,7 @@ class Topic extends Model
         // 按照创建时间排序
         return $query->orderBy('created_at', 'desc');
     }
+
 
     public function link($params = [])
     {
