@@ -106,4 +106,9 @@ class UsersController extends Controller
     {
         return $this->response->collection($user->getActiveUsers(), new UserTransformer());
     }
+
+    public function show(User $user)
+    {
+        return $this->response->item($user, new UserTransformer());
+    }
 }
