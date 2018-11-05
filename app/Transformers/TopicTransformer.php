@@ -8,7 +8,7 @@ use League\Fractal\TransformerAbstract;
 
 class TopicTransformer extends TransformerAbstract
 {
-    protected $availableIncludes = ['user', 'category', 'topRelies'];
+    protected $availableIncludes = ['user', 'category', 'topReplies'];
 
     public function transform(Topic $topic)
     {
